@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using NoteApp.ViewModel;
+using System.Windows;
 
 namespace NoteApp
 {
@@ -10,6 +11,8 @@ namespace NoteApp
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowViewModel viewModel = new MainWindowViewModel();
+            DataContext = viewModel;
         }
     }
 }
