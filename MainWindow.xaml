@@ -12,12 +12,20 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         
-        <DataGrid ItemsSource="{Binding Notes}">
+        <DataGrid 
+            ItemsSource="{Binding Notes}"
+            CanUserAddRows="False" CanUserDeleteRows="False"
+            AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*"/>
+                <DataGridTextColumn Header="Content" Binding="{Binding Content}" Width="4*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Created}" Width="2*"/>
+            </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button Content="Add"/>
-            <Button Content="Delete"/>
+            <Button Width="100" Margin="5" Content="Add"/>
+            <Button Width="100" Margin="5" Content="Delete"/>
             <Label Content="{Binding StatusLabel}"/>
         </StackPanel>
     </Grid>
