@@ -13,7 +13,7 @@ namespace NoteApp.Model
             _db = _client.GetDatabase("note_app_db");
         }
 
-        public static MongoHandler getInstance()
+        public static MongoHandler GetInstance()
         {
             _instance ??= new MongoHandler();
             return _instance;

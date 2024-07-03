@@ -23,7 +23,7 @@ namespace NoteApp.ViewModel
         public async void loadNotes()
         {
             StatusLabel = "Loading...";
-            List<Note> notes = await _notesCollection.getNotes();
+            List<Note> notes = await _notesCollection.GetNotes();
             foreach (Note note in notes)
                 Notes.Add(note);
             StatusLabel = " ";
