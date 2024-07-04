@@ -14,9 +14,12 @@ namespace NoteApp.ViewModel
 
         [ObservableProperty]
         private string _statusLabel = " ";
+        [ObservableProperty]
+        private Note _selectedItem;
 
         public RelayCommand RefreshCommand => new RelayCommand(LoadNotes);
         public RelayCommand OpenAddWindowCommand => new RelayCommand(OpenAddWindow);
+        public RelayCommand DeleteNoteCommand => new RelayCommand(DeleteSelectedNote);
 
         public MainWindowViewModel()
         {
@@ -33,6 +36,13 @@ namespace NoteApp.ViewModel
             foreach (Note note in notes)  
                 Notes.Add(note);
             StatusLabel = " ";
+        }
+
+        public void DeleteSelectedNote()
+        {   
+            string id = SelectedItem.Id.ToString();
+            _notesCollection.RemoveNoteById(id);
+            LoadNotes();
         }
 
         public void OpenAddWindow()

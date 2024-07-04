@@ -14,6 +14,8 @@
         
         <DataGrid 
             ItemsSource="{Binding Notes}"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionMode="Single"
             CanUserAddRows="False" CanUserDeleteRows="False"
             AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
@@ -26,7 +28,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button Width="100" Margin="5" Content="Add"
                     Command="{Binding OpenAddWindowCommand}"/>
-            <Button Width="100" Margin="5" Content="Delete"/>
+            <Button Width="100" Margin="5" Content="Delete"
+                    Command="{Binding DeleteNoteCommand}"/>
             <Button Width="50" Margin="5" Content="&#10227;" 
                     Command="{Binding RefreshCommand}"/>
             <Label Content="{Binding StatusLabel}"/>
