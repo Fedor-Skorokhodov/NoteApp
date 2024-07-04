@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NoteApp.Model;
+using NoteApp.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace NoteApp.View
 {
@@ -19,9 +9,13 @@ namespace NoteApp.View
     /// </summary>
     public partial class AddNoteWindow : Window
     {
-        public AddNoteWindow()
+        public AddNoteWindow(NotesCollection model, Action updateAction)
         {
             InitializeComponent();
+            AddNoteWindowViewModel viewModel = new AddNoteWindowViewModel(model);
+            DataContext = viewModel;
+            viewModel.CloseAction = () => {Close(); };
+            viewModel.RefreshAction = updateAction;
         }
     }
 }

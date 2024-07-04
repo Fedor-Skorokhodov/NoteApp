@@ -16,15 +16,16 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <Label Content="Title"/>
-            <TextBox Width="500"/>
+            <TextBox Width="500" Text="{Binding Title}"/>
         </StackPanel>
-        <TextBlock Grid.Row="1" Height="200">
-            
-        </TextBlock>
+        
+        <TextBox Grid.Row="1" Height="200" AcceptsReturn="True"
+                 Text="{Binding Content}"/>
+        
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <Button Content="Add" Margin="1"/>
-            <Button Content="Cancel" Margin="1"/>
+            <Button Content="Add" Margin="1" Command="{Binding AddCommand}"/>
+            <Button Content="Cancel" Margin="1" Command="{Binding CancelCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

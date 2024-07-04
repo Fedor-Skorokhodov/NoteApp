@@ -2,7 +2,7 @@
 
 namespace NoteApp.Model
 {
-    internal class Note
+    public class Note
     {
         public ObjectId Id { get; set; }
         public string Title { get; set; }

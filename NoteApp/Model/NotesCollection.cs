@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace NoteApp.Model
 {
-    internal class NotesCollection
+    public class NotesCollection
     {
         private IMongoDatabase _db;
         private IMongoCollection<Note> _notesCollection;
