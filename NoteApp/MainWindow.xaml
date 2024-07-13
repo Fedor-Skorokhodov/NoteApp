@@ -30,6 +30,8 @@
                     Command="{Binding OpenAddWindowCommand}"/>
             <Button Width="100" Margin="5" Content="Delete"
                     Command="{Binding DeleteNoteCommand}"/>
+            <Button Width="100" Margin="5" Content="Edit"
+                    Command="{Binding OpenEditWindowCommand}"/>
             <Button Width="50" Margin="5" Content="&#10227;" 
                     Command="{Binding RefreshCommand}"/>
             <Label Content="{Binding StatusLabel}"/>

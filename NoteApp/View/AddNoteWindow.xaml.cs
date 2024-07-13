@@ -9,13 +9,13 @@ namespace NoteApp.View
     /// </summary>
     public partial class AddNoteWindow : Window
     {
-        public AddNoteWindow(NotesCollection model, Action updateAction)
+        public AddNoteWindow(NotesCollection model, Action refreshAction)
         {
             InitializeComponent();
             AddNoteWindowViewModel viewModel = new AddNoteWindowViewModel(model);
             DataContext = viewModel;
             viewModel.CloseAction = () => {Close(); };
-            viewModel.RefreshAction = updateAction;
+            viewModel.RefreshAction = refreshAction;
         }
     }
 }

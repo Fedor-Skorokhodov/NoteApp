@@ -19,6 +19,7 @@ namespace NoteApp.ViewModel
 
         public RelayCommand RefreshCommand => new RelayCommand(LoadNotes);
         public RelayCommand OpenAddWindowCommand => new RelayCommand(OpenAddWindow);
+        public RelayCommand OpenEditWindowCommand => new RelayCommand(OpenEditWindow);
         public RelayCommand DeleteNoteCommand => new RelayCommand(DeleteSelectedNote);
 
         public MainWindowViewModel()
@@ -50,6 +51,16 @@ namespace NoteApp.ViewModel
             Action action = () => LoadNotes();
             AddNoteWindow addWindow = new AddNoteWindow(_notesCollection, action);
             addWindow.Show();
+        }
+
+        public void OpenEditWindow()
+        {
+            if (SelectedItem == null) return;
+
+            Action action = () => LoadNotes();
+            EditNoteWindow editWindow = new EditNoteWindow(_notesCollection, 
+                SelectedItem, action);
+            editWindow.Show();
         }
     }
 }
